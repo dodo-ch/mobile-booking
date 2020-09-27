@@ -23,6 +23,7 @@ const SettingsDashboard = (props: any) => {
                     maximumTrackTintColor="#818DA6"
                     thumbTintColor="#818DA6"
                     value={timeValue}
+                    onValueChange={(x)=>{setTimeValue(x)}}
                 />
                 
             </View>
@@ -42,22 +43,6 @@ const SettingsDashboard = (props: any) => {
                     onValueChange={(x)=>{setPatientValue(x)}}
                 />
             </View>
-            {/*<Text>Time range for 1 patient</Text>
-            <View style={styles.gridItem}>
-                <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                    onChangeText={text => onChangePatientText(text)}
-                    value={patientValue}
-                    />
-            </View>
-            <Text>Number of patients</Text>
-            <View style={styles.gridItem}>
-                <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                    onChangeText={text => onChangeTimeText(text)}
-                    value={timeValue}
-                    />
-            </View>*/}
             <View style={styles.loginButtonDoctor}> 
                 <Button title="Save" /*style={styles.loginButton}*/ onPress={()=>{
                 props.navigation.navigate('Dashboard');
