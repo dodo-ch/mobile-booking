@@ -1,38 +1,45 @@
 import React from 'react';
 import { TextInput, TouchableOpacity, StyleSheet, View, Image, Text, Button, FlatList} from 'react-native';
 import Colors from '../../constants/colors'
-import Slider from 'react-input-slider';
+import Slider from '@react-native-community/slider';
 
-const SettingsDashboard = (props:any) => {
-    const [timeValue, setTimeValue] = React.useState({ x: 10 });
-    const [patientValue, setPatientValue] = React.useState({ x: 10 });
-    //const [state, setState] = React.useState({ x: 10 });
+
+const SettingsDashboard = (props: any) => {
+    const [timeValue, setTimeValue] = React.useState( 10);
+    const [patientValue, setPatientValue] = React.useState(10);
 
     return (
         <View style={styles.gridDashboard}>
             
             <View style={styles.gridItem}>
                 <Text>Time for 1 patient</Text>
-                <Text>{timeValue.x} min</Text>
-            
+                <Text>{timeValue} min</Text>
                 <Slider
-                    axis="x"
-                    xmin={0}
-                    xmax={500}
-                    x={timeValue.x}
-                    onChange={({ x }) => setTimeValue(state => ({ ...state, x }))}
+                    style={{width: 300, height: 40}}
+                    minimumValue={0}
+                    maximumValue={500}
+                    step={1}
+                    minimumTrackTintColor="#000000"
+                    maximumTrackTintColor="#818DA6"
+                    thumbTintColor="#818DA6"
+                    value={timeValue}
                 />
+                
             </View>
 
             <View style={styles.gridItem}>
                 <Text>Daily patients</Text>
-                <Text>{patientValue.x}</Text>
+                <Text>{patientValue}</Text>
                 <Slider
-                    axis="x"
-                    xmin={0}
-                    xmax={100}
-                    x={patientValue.x}
-                    onChange={({ x }) => setPatientValue(state => ({ ...state, x }))}
+                    style={{width: 300, height: 40}}
+                    minimumValue={0}
+                    maximumValue={100}
+                    step={1}
+                    minimumTrackTintColor="#000000"
+                    maximumTrackTintColor="#818DA6"
+                    thumbTintColor="#818DA6"
+                    value={patientValue}
+                    onValueChange={(x)=>{setPatientValue(x)}}
                 />
             </View>
             {/*<Text>Time range for 1 patient</Text>
@@ -71,15 +78,15 @@ SettingsDashboard.navigationOptions = {
 
 const styles = StyleSheet.create({
     gridDashboard: {
+        paddingTop: 25,
         margin: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },
     gridItem: {
-        flex: 1,
         margin: 10,
         padding: 5,
-        height: 150,
+        height: 60,
         borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
