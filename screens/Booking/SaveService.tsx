@@ -23,10 +23,11 @@ const SaveService = (props:any) =>{
             <View style={styles.itemQR}>
                 <QRCode size={250} value={'Service: '+ catId + ', Doctor: ' + docId + ', Date: ' + dayID + ', Time: ' + timeID}/>
             </View>
+            
         </View>
         <View style={styles.itemSaveBtn}>
-          <Button title={'Save'} onPress={()=>{props.navigation.navigate('Welcome');}} />
-        </View>
+              <Button title={'Save'} onPress={()=>{props.navigation.navigate('Welcome');}} />
+           </View>
       </View>
     )
 }
@@ -45,7 +46,7 @@ SaveService.navigationOptions = (navigationData:any) => {
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
+   //flex: 1,
    paddingTop: 5,
    margin: 10,
    //justifyContent: 'center',
