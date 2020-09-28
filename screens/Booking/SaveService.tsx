@@ -26,7 +26,7 @@ const SaveService = (props:any) =>{
             
         </View>
         <View style={styles.itemSaveBtn}>
-              <Button title={'Save'} onPress={()=>{props.navigation.navigate('Welcome');}} />
+              <Button color={Colors.primary} title={'Save'} onPress={()=>{props.navigation.navigate('Welcome');}} />
            </View>
       </View>
     )

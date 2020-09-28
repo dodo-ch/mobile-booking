@@ -59,7 +59,7 @@ const TypeOfService = (props:any) => {
                   <Text  style={styles.textStyle}>
                       {itemData.item.key}
                   </Text>
-                  <Button title={'+'} onPress={()=>{
+                  <Button color={Colors.primary} title={'+'} onPress={()=>{
                       props.navigation.navigate('Doctor', {ServiceId: itemData.item.key});
                   }}>
                   </Button>

@@ -15,16 +15,20 @@ function WelcomeScreen(props:any){
             </View>
             
             <View  style={styles.loginButtonUser}>
-                <Button title="Login as User" /*style={styles.loginButton}*/ onPress={()=>{
+                <Button color={Colors.primary} title="Login as User" /*style={styles.loginButton}*/ onPress={()=>{
                 props.navigation.navigate('Service');
                 }}>
                 </Button>
             </View>
             <View  style={styles.loginButtonDoctor}> 
-                <Button title="Login as Doctor" /*style={styles.loginButton}*/ onPress={()=>{
+                <Button color={Colors.primary}  title="Login as Doctor" /*style={styles.loginButton}*/ onPress={()=>{
                 props.navigation.navigate('Dashboard');
                 }}>
                 </Button>
+            </View>
+            <View  style={styles.copyrightLogo}>
+                <Image style={styles.PDSlogo} source={require('../assets/pds_logo.jpg')}/>
+                <Text style={styles.copyrightText}>Copyright © PredictiveDataScience s.r.o. 2020</Text>
             </View>
             
         </View>   
@@ -67,6 +71,20 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 50,
         alignItems: "center"
+    },
+    copyrightLogo: {
+        position: "absolute",
+        bottom: 25,
+        alignItems: "center",
+    },
+    PDSlogo: {
+        width: 200,
+        height: 25,
+    },
+    copyrightText: {
+        color: Colors.copyrightText,
+        margin: 5,
+        fontSize: 12,
     },
 
 })

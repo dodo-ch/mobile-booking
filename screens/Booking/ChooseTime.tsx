@@ -15,7 +15,7 @@ const ChooseTime = (props:any) =>{
           <Text style={styles.textStyle}>
               {itemData.item.key}
           </Text>
-          <Button title={'select'} onPress={()=>{
+          <Button color={Colors.primary} title={'select'} onPress={()=>{
               props.navigation.navigate('SaveService', {TimeId: itemData.item.key, DayId: dayID, catId,docId});
           }}>
           </Button>

@@ -44,7 +44,7 @@ const SettingsDashboard = (props: any) => {
                 />
             </View>
             <View style={styles.loginButtonDoctor}> 
-                <Button title="Save" /*style={styles.loginButton}*/ onPress={()=>{
+                <Button color={Colors.primary} title="Save" /*style={styles.loginButton}*/ onPress={()=>{
                 props.navigation.navigate('Dashboard');
                 }}>
                 </Button>

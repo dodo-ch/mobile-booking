@@ -22,7 +22,7 @@ const Dashboard = (props:any) =>{
     return (
         <View > 
             <View style={styles.gridTitle}>
-                <Text style={styles.gridItemText}>Welcome</Text>
+                <Text style={styles.gridItemTitle}>Welcome</Text>
             </View>
         
             <FlatList 
@@ -31,7 +31,7 @@ const Dashboard = (props:any) =>{
                     {key: 'My Patients', route: 'PatientList'},
                     {key: 'My Calendar', route: 'CalendarListOfPatients'},
                     {key: 'Time', route: 'Time'},
-                    {key: 'Settings', route: 'SettingsDashboard'},
+                    {key: 'Settings', route: 'SettingsDashboard'}
                 ]}
                 renderItem={renderGridItem}
             />
@@ -60,13 +60,18 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 5,
         height: 150,
-        backgroundColor: '#AEB5BF',
+        backgroundColor: Colors.secondary,
         borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    gridItemText: {
+    gridItemTitle: {
         fontSize: 18,
+        color: Colors.primary,
+    },
+    gridItemText: {
+        fontSize: 16,
+        color: Colors.text,
     }
 
 })
