@@ -11,7 +11,7 @@ function WelcomeScreen(props:any){
         > 
             <View  style={styles.logoContainer}>
                 <Image style={styles.logo} source={require('../assets/splash.png')}/>
-                <Text>Welcome</Text>
+                <Text style={{color: Colors.textDark, fontSize: 18}}>Welcome</Text>
             </View>
             
             <View  style={styles.loginButtonUser}>
@@ -53,15 +53,13 @@ const styles = StyleSheet.create({
     },
     loginButtonUser: {
         top: 70,
-        width: '100%',
+        width: '95%',
         height: 70,
-        //backgroundColor: '#fc5c65'
     },
     loginButtonDoctor: {
         top: 50,
-        width: '100%',
+        width: '95%',
         height: 70,
-        //backgroundColor: '#fc5c65'
     },
     logo: {
         width: 180,

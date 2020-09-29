@@ -11,7 +11,7 @@ import Dashboard from '../screens/User/Dashboard';
 import SettingsDashboard from '../screens/User/SettingsDashboard';
 import PatientList from '../screens/User/PatientList';
 import CalendarListOfPatients from '../screens/User/CalendarListOfPatients';
-
+import TodayCalendarListOfPatients from '../screens/User/TodayCalendarListOfPatients'
 
 const Navigator = createStackNavigator({
 
@@ -20,6 +20,7 @@ const Navigator = createStackNavigator({
     SettingsDashboard: SettingsDashboard,
     PatientList: PatientList,
     CalendarListOfPatients: CalendarListOfPatients,
+    TodayCalendarListOfPatients: TodayCalendarListOfPatients,
     Service: TypeOfService,
     Doctor: ChooseDoc,
     Date: ChooseDate, 

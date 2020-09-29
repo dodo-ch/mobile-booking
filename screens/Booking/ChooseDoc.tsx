@@ -1,36 +1,47 @@
 import React from 'react';
-import { StyleSheet, View, Button, Text, FlatList} from 'react-native';
+import {TouchableOpacity, StyleSheet, View, Button, Text, FlatList} from 'react-native';
 import Colors from '../../constants/colors'
 
 const ChooseDoc = (props:any) => {
   const catID = props.navigation.getParam('ServiceId')
+  const borderCol = props.navigation.getParam('borderCol')
 
   const renderGridItem = (itemData:any) =>{
+    const borderStyle = function(myColor:any) {
+      return {
+        borderTopColor: myColor,
+        borderTopWidth: 2
+      }
+    }
+  
     return (
-    <View style={styles.item}>
-        <Text style={styles.textStyle}>
-            {itemData.item.key}
-        </Text>
-        <Button color={Colors.primary} title={'+'} onPress={()=>{
-            props.navigation.navigate('Date', {catId: catID, docId: itemData.item.key});
+
+      <TouchableOpacity onPress={()=>{
+        props.navigation.navigate('Date', {catId: catID, docId: itemData.item.key, borderCol});
         }}>
-        </Button>
-    </View>
+        <View style={StyleSheet.flatten([borderStyle(borderCol), styles.item])}>
+          <Text style={styles.textStyle}>
+              {itemData.item.key}
+          </Text>
+          <Button color={Colors.primary} title={'+'} onPress={()=>{
+              props.navigation.navigate('Date', {catId: catID, docId: itemData.item.key, borderCol});
+          }}>
+          </Button>
+        </View>
+      </TouchableOpacity>
+
+    
     )
   }
-
 
   return (
     <View style={styles.container}>
         <FlatList
           data={[
-            {key: 'Jackson'},
-            {key: 'James'},
-            {key: 'Joel'},
-            {key: 'John'},
-            {key: 'Jillian'},
-            {key: 'Jimmy'},
-            {key: 'Julie'},
+            {key: 'Dr. med. Simon Reidl'},
+            {key: 'Dr. med. Joseph Fischer'},
+            {key: 'Dr. med. Jorg Thallamer'},
+            {key: 'Dr. med. Patricia März'}
           ]}
           renderItem={renderGridItem}
         />
@@ -58,13 +69,20 @@ const styles = StyleSheet.create({
      margin: 10
     },
     item: {
-      padding: 5,
-      fontSize: 18,
-      height: 45,
-      flexDirection: 'row', justifyContent: "space-between" 
+      height: 80,
+      margin: 10,
+      padding: 15,
+      flexDirection: 'row', 
+      justifyContent: "space-between",
+      borderWidth: 1,
+      borderColor: Colors.lightBackground,
+      backgroundColor: Colors.lightBackground,
+      borderRadius: 6,
+      alignItems: 'center',
     },
     textStyle: {
-      fontSize: 20
+      fontSize: 18,
+      color: Colors.textDark
     }
 });
 

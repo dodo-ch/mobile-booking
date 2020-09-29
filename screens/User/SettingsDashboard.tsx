@@ -82,8 +82,7 @@ const styles = StyleSheet.create({
     loginButtonDoctor: {
         top: 50,
         width: '100%',
-        height: 70,
-        //backgroundColor: '#27A603'
+        height: 70
     },
 
 })

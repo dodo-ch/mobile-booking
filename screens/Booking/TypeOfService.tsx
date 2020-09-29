@@ -49,57 +49,44 @@ const categories = [
 
 const TypeOfService = (props:any) => {
   
+  const borderStyle = function(myColor:any) {
+    return {
+      borderTopColor: myColor,
+      borderTopWidth: 2
+    }
+  }
+
   const renderGridItem = (itemData:any) =>{
       return (
-      
-            <TouchableOpacity onPress={()=>{
-                props.navigation.navigate('Doctor', {ServiceId: itemData.item.key});
-                }}>
-                <View style={styles.item}>
-                  <Text  style={styles.textStyle}>
-                      {itemData.item.key}
-                  </Text>
-                  <Button color={Colors.primary} title={'+'} onPress={()=>{
-                      props.navigation.navigate('Doctor', {ServiceId: itemData.item.key});
-                  }}>
-                  </Button>
-                </View>
-              </TouchableOpacity>
-
-        
+        <TouchableOpacity onPress={()=>{
+          props.navigation.navigate('Doctor', {ServiceId: itemData.item.key, borderCol: itemData.item.color});
+          }}>
+          <View style={StyleSheet.flatten([borderStyle(itemData.item.color), styles.item])}>
+              <Text style={styles.textStyle}>
+                  {itemData.item.key}
+              </Text>
+              <Button color={Colors.primary} title={'+'} onPress={()=>{
+                  props.navigation.navigate('Doctor', {ServiceId: itemData.item.key, borderCol: itemData.item.color});
+              }}>
+              </Button>
+          </View>
+        </TouchableOpacity>
       )
-    }
+  }
 
-    return (
-      <View style={styles.container}>
-        <FlatList
-          data={[
-            {key: 'Service1'},
-            {key: 'Service2'},
-            {key: 'Service3'}
-          ]}
-          renderItem={renderGridItem}
-        />
-         
-        
-        
-          {/*<View style={styles.viewStyle}>
-            <Text style={styles.textStyle}>test</Text>
-            
-                {categories.map(category => (
-                  <TouchableOpacity
-                    key={category.name}
-                    onPress={() => {}}
-                  >
-                    <Text>
-                        {category.count} products
-                    </Text>
-                    
-                  </TouchableOpacity>
-              ))}
-                </View>*/}
-      </View>
-    )
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={[
+          {id: 0, key: 'Covid-19 - Impfung', color: '#7EA8C1'},
+          {id: 1, key: 'Influenza - Impfung', color: '#8374A5'},
+          {id: 2, key: 'Vorsorgeuntersuchung', color: '#F3CEA6'},
+          {id: 3, key: 'Blutprobe', color: '#B190A1'},
+        ]}
+        renderItem={renderGridItem}
+      />
+    </View>
+  )
 }
 
 
@@ -118,19 +105,20 @@ const styles = StyleSheet.create({
      margin: 10
     },
     item: {
-      fontSize: 18,
-      height: 35,
+      height: 80,
       margin: 10,
-      flexDirection: 'row', justifyContent: "space-between" 
-    },
-    viewStyle: {
-      backgroundColor: '#F8F8F8',
-      justifyContent: 'center',
+      padding: 15,
+      flexDirection: 'row', 
+      justifyContent: "space-between",
+      borderWidth: 1,
+      borderColor: Colors.lightBackground,
+      backgroundColor: Colors.lightBackground,
+      borderRadius: 6,
       alignItems: 'center',
-      height: 60
     },
     textStyle: {
-      fontSize: 20
+      fontSize: 18,
+      color: Colors.textDark
     }
   });
 

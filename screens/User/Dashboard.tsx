@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     gridItemTitle: {
         fontSize: 18,
-        color: Colors.primary,
+        color: '#26373F',
     },
     gridItemText: {
         fontSize: 16,

@@ -12,51 +12,26 @@ const timeToString = (time:any) => {
 const ChooseDate = (props:any) =>{
   const catId = props.navigation.getParam('catId')
   const docId = props.navigation.getParam('docId')
+  const borderCol = props.navigation.getParam('borderCol')
+  const [items, setItems] = useState({});
+  const [date, setDate] = useState(timeToString(new Date()));
  
-{/*<CalendarList
-            pastScrollRange={4}
-            futureScrollRange={4}
-            scrollEnabled={true}
-            showScrollIndicator={true}
-            style={()=>{}}
-            onDayPress={(day)=>{
-                props.navigation.navigate('Time', {DayId: day.dateString});
-            }}
-          />
-
-          <WeekCalendar 
-          onDayPress={(day)=>{
-               setDate(day.dateString)
-              
-            }} />
-
-        <Agenda 
-            items={items}
-            loadItemsForMonth={loadItems}
-            selected={date}
-            renderItem={renderItem}
-          />
-        
-        */}
-          const [items, setItems] = useState({});
-          const [date, setDate] = useState(timeToString(new Date()));
- 
-    return (
-      <View>
-        <CalendarList
-          current={date}
-          pastScrollRange={6}
-          futureScrollRange={6}
-          scrollEnabled={true}
-          showScrollIndicator={true}
-          horizontal={true}
-          onDayPress={(day:any)=>{
-              props.navigation.navigate('Time', {DayId: day.dateString,catId,docId});
-          }}
-        />
-      </View>
-        
-    )
+  return (
+    <View>
+      <CalendarList
+        current={date}
+        pastScrollRange={25}
+        futureScrollRange={25}
+        scrollEnabled={true}
+        showScrollIndicator={true}
+        horizontal={true}
+        onDayPress={(day:any)=>{
+            props.navigation.navigate('Time', {DayId: day.dateString,catId,docId, borderCol});
+        }}
+      />
+    </View>
+      
+  )
 }
 
 
@@ -71,14 +46,13 @@ ChooseDate.navigationOptions = {
   
 
 const styles = StyleSheet.create({
-    container: {
-     flex: 1,
-     paddingTop: 5,
-     margin: 10
-    },
+    gridDashboard: {
+      margin: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
     item: {
       padding: 10,
-      fontSize: 18,
       height: 44,
     },
 });
