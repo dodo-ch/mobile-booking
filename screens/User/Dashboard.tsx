@@ -1,30 +1,19 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, View, Image, Text, Button, FlatList} from 'react-native';
-import Colors from '../../constants/colors'
+import Colors from '../../constants/colors';
+import DashboardGridTile from '../../components/DashboardGridTile';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 
 const Dashboard = (props:any) =>{
 
     const renderGridItem = (itemData:any) =>{
-        return (
-            <TouchableOpacity style={styles.gridItem} onPress={()=>{
-                props.navigation.navigate(itemData.item.route);
-                }}>
-            <View >
-                <Text style={styles.gridItemText}>
-                    {itemData.item.key}
-                </Text>
-            </View>
-              </TouchableOpacity>
-            
-        )
+        return <DashboardGridTile title={itemData.item.key} onSelect={()=>{
+            props.navigation.navigate(itemData.item.route);
+        }}/>
     }
 
     return (
         <View > 
-            <View style={styles.gridTitle}>
-                <Text style={styles.gridItemTitle}>Welcome</Text>
-            </View>
-        
             <FlatList 
                 numColumns={2} 
                 data={[
@@ -35,7 +24,6 @@ const Dashboard = (props:any) =>{
                 ]}
                 renderItem={renderGridItem}
             />
-         
         </View>   
     
     )
@@ -46,7 +34,12 @@ Dashboard.navigationOptions = {
     headerStyle: {
       backgroundColor: Colors.secondary,
     },
-    headerTintColor: 'white'
+    headerTintColor: 'white',
+    headerLeft: (
+        <HeaderButtons>
+            <Item title="Menu" iconName="ios-menu" onPress={()=>{}}/>
+        </HeaderButtons>
+    )
 };
 
 const styles = StyleSheet.create({

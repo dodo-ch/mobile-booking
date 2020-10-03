@@ -4,6 +4,11 @@
     "slug": "rn-first",
     "version": "1.0.0",
     "orientation": "portrait",
+    "sdkVersion": "38.0.0",
+    "platforms": [
+      "android",
+      "web"
+    ],
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -17,13 +22,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "vw.booking.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "android": {
       "package": "host.exp.exponent"
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

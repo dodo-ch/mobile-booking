@@ -41,7 +41,7 @@ WelcomeScreen.navigationOptions = {
     headerStyle: {
       backgroundColor: Colors.secondary,
     },
-    headerTintColor: 'white'
+    headerTintColor: 'white',
 };
 
 const styles = StyleSheet.create({
